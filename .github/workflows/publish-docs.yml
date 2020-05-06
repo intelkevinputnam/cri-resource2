@@ -24,7 +24,7 @@ jobs:
     - name: Deploy the docs
       run: |
         mkdir $HOME/output
-        mv _build/html/ $HOME/output
+        mv -v _build/html/* $HOME/output
         touch $HOME/output/.nojekyll
         cd $HOME/output
         git init
