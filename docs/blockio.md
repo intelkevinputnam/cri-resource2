@@ -12,4 +12,4 @@ CRI Resource Manager applies block IO contoller parameters to pods via
 
 ## Configuration
 
-See [sample blockio configuration](../sample-configs/blockio.cfg).
+See [sample blockio configuration](/sample-configs/blockio.cfg).
