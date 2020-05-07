@@ -20,3 +20,4 @@ Welcome to CRI Resource Manager's documentation!
    SECURITY.md
    TODO.md
    docs/other.rst
+   Project GitHub repository <https://github.com/intel/cri-resource-manager>
