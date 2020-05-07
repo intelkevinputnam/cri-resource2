@@ -4,7 +4,7 @@ Policy Documentation
 -  `Block IO <blockio.md>`__
 - `Container Affinity and Anti-Affinity <container-affinity.md>`__
 - `Static-Pools (STP) Policy <policy-static-pools.md>`__
-- `Topology-Aware Policy </pkg/cri/resource-manager/policy/builtin/topology-aware/README.md>`__
+- `Topology-Aware Policy <../pkg/cri/resource-manager/policy/builtin/topology-aware/README.md>`__
 - `RDT (Intel® Resource Director Technology) <rdt.md>`__
 
 .. toctree::
