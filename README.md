@@ -190,7 +190,7 @@ kubectl label nodes cl0-slave1 cri-resource-manager.intel.com/group-
 
 There is a [sample ConfigMap spec](sample-configs/cri-resmgr-configmap.example.yaml)
 that contains a node-specific, a group-specific, and a default sample ConfigMap.
-See [any available policy-specific documentation](docs) for more information on the
+See [any available policy-specific documentation](docs/index.rst) for more information on the
 policy configurations.
 
 ## Logging and Debugging

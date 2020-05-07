@@ -11,11 +11,7 @@ Welcome to CRI Resource Manager's documentation!
    :caption: Contents:
 
    README.md
-   docs/container-affinity.md
-   docs/blockio.md
-   docs/policy-static-pools.md
-   docs/policy-topology-aware.md
-   docs/rdt.md
+   docs/index.rst
    CONTRIBUTING.md
    SECURITY.md
    TODO.md
