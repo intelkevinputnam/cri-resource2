@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     branches:
-        - kp-add-sphinx
+        - kp-sphinx-with-reorog
 
 jobs:
   build:
