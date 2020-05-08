@@ -11,9 +11,15 @@ Welcome to CRI Resource Manager's documentation!
    :caption: Contents:
 
    README.md
+   intro/overview.md
+   get-started/get-started.md
+   dev-resources/reference-docs.md
+   dev-resources/supported-arch.md
    docs/index.rst
+   how-tos/policies.md
    CONTRIBUTING.md
    SECURITY.md
    TODO.md
+   faqs.md
    docs/other.rst
    Project GitHub repository <https://github.com/intel/cri-resource-manager>
