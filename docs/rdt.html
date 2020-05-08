@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RDT (Intel® Resource Director Technology) &mdash; CRI Resource Manager  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="isolcpus Handling" href="isolcpus.html" />
+    <link rel="prev" title="Topology-Aware Policy" href="../pkg/cri/resource-manager/policy/builtin/topology-aware/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CRI Resource Manager
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">CRI Resource Manager for Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview of Container Runtime Interface Resource Manager for Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-started/get-started.html">Getting Started with Container Runtime Interface Resource Manager for Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-resources/reference-docs.html">Reference Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-resources/supported-arch.html">Supported Hardware</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Policy Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blockio.html">Block IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-affinity.html">Container Affinity and Anti-Affinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy-static-pools.html">Static-Pools (STP) Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pkg/cri/resource-manager/policy/builtin/topology-aware/README.html">Topology-Aware Policy</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RDT (Intel® Resource Director Technology)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command-line-flags">Command Line Flags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dynamic-configuration">Dynamic Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="isolcpus.html">isolcpus Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../how-tos/policies.html">How To Write Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Reporting a Potential Security Vulnerability:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TODO.html">TODO for CRI Resource Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faqs.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">Other content</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/intel/cri-resource-manager">Project GitHub repository</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CRI Resource Manager</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Policy Documentation</a> &raquo;</li>
+        
+      <li>RDT (Intel® Resource Director Technology)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/rdt.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rdt-intel-resource-director-technology">
+<h1>RDT (Intel® Resource Director Technology)<a class="headerlink" href="#rdt-intel-resource-director-technology" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Intel® RDT provides capabilities for cache and memory allocation and
+monitoring. In Linux system the functionality is exposed to the user space via
+the <a class="reference external" href="https://www.kernel.org/doc/Documentation/x86/intel_rdt_ui.txt">resctrl</a>
+filesystem. Cache and memory allocation in RDT is handled by using resource
+control groups. Resource allocation is specified on the group level and each
+task (process/thread) is assigned to one group. In the context of CRI Resource
+we use the term ‘RDT class’ instead of ‘resource control group’.</p>
+<p>Out of the RDT technologies, CRI Resource Manager currently supports L3 cache
+allocation and memory bandwidth allocation. The configuration contains a set of
+RDT classes which the policies can assign containers to. In the underlying
+system (on OS level) one resctrl group per RDT class) is created.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="command-line-flags">
+<h3>Command Line Flags<a class="headerlink" href="#command-line-flags" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-no-rdt</code></td>
+<td>Disable RDT resource management</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="dynamic-configuration">
+<h3>Dynamic Configuration<a class="headerlink" href="#dynamic-configuration" title="Permalink to this headline">¶</a></h3>
+<p>CRI utilizes configuration received from
+<a class="reference external" href="../README.html#cri-resource-manager-node-agent"><code class="docutils literal notranslate"><span class="pre">cri-resmgr-agent</span></code></a>, under the
+key <code class="docutils literal notranslate"><span class="pre">rdt</span></code> in the ConfigMap containing <code class="docutils literal notranslate"><span class="pre">cri-resmgr</span></code> configuration data. The
+configuration specifies a set of ‘partitions’ each further containing a set of
+‘classes’. The configuration can be dynamically updated by editing the
+ConfigMap.</p>
+<p>Partitions represent a logical grouping of the underlying classes, each
+partition specifying a portion of the available resources (L3/MB) which will be
+shared by the classes under it. L3 allocations between partitions are exclusive,
+i.e. no overlap on the cache ways between partitions is allowed. MB
+allocations do not have this property, i.e. all partitions may have 100% of
+bandwidth, for example.</p>
+<p>Classes represent the actual RDT classes that the policies assign containers
+to. The set of RDT classes can be freely specified, but, one must ensure that
+classes required by the active policy are specified, and, that the maxmimum
+number of classes (CLOSes) supported by the underlying system is not exceeded.</p>
+<p>CRI-RM has a built-in default configuration containing three classes
+corresponding to the Pod QOS classes of Kubernetes. These are utilized by the
+<code class="docutils literal notranslate"><span class="pre">static</span></code> policy.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">rdt</span></code> in the <a class="reference external" href="https://github.com/intelkevinputnam/cri-resource-manager/blob/4b13a5a81d2367b35d6344308205a19d089edb19/sample-configs/cri-resmgr-configmap.example.yaml">example ConfigMap spec</a>
+for an example configuration.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="isolcpus.html" class="btn btn-neutral float-right" title="isolcpus Handling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../pkg/cri/resource-manager/policy/builtin/topology-aware/README.html" class="btn btn-neutral float-left" title="Topology-Aware Policy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, various
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
